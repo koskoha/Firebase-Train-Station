@@ -19,3 +19,11 @@ td{
     vertical-align: middle;
     display: table-cell;
 }
+
+.navbar{
+	background-color: #337ab7;
+}
+
+#main{
+	margin-top: 55px;
+}
