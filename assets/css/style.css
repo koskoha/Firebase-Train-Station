@@ -1,0 +1,21 @@
+
+.hide{
+	display: none;
+}
+.background{
+	background-color: #794624;
+	color: white;
+}
+
+table button{
+	margin-left: 10px;
+}
+
+th{
+	font-weight: bold;
+}
+
+td{
+    vertical-align: middle;
+    display: table-cell;
+}

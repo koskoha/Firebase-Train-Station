@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<title>Train Management system</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron text-center background">
+			  <h1>Anytime is Train Time</h1>
+			  <h3>Choo Choo. Chee Chee</h3>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Current Train Schedule</h3>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-hover table-striped"> 
+						<thead> 
+							<tr>
+								<th>Train Name</th> <th>Destination</th> <th>Frequency (min)</th> <th>Next Arrival</th> <th>Minutes Away</th> <th></th>
+							</tr> 
+						</thead> 
+						<tbody id="tableToAdd"> 
+							<!-- Table Data -->
+						</tbody> 
+					</table>
+				</div>
+			</div>
+
+			
+		</div>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				 <h3 class="panel-title">Add Train</h3>
+			</div>
+			  <div class="panel-body">
+					<form>
+					  <div class="form-group">
+					    <label for="name">Train Name</label>
+					    <input type="text" class="form-control" id="train-name" placeholder="Train Name">
+					  </div>
+					  <div class="form-group">
+					    <label for="role">Destination</label>
+					    <input type="text" class="form-control" id="destination" placeholder="Destination">
+					  </div>
+					  <div class="form-group">
+					    <label for="start-date">First Train Time (HH:mm - military time)</label>
+					    <input type="time" class="form-control" id="first-train" placeholder="First Train Time">
+					  </div>
+					  <div class="form-group">
+					    <label for="rate">Frequency (min)</label>
+					    <input type="number" class="form-control" id="frequency" placeholder="Frequency">
+					  </div>
+					  
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+			  </div>
+		</div>
+	</div>	
+
+	<script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="assets/javascript/app.js"></script>
+</body>
+</html
