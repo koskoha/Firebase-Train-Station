@@ -6,7 +6,7 @@ var database = firebase.database();
 $("#addTrain").on("click", function(event) {
 	event.preventDefault();
 	var $train = $('#train-name');
-	var trainName = train.val();
+	var trainName = $train.val();
 	if(trainName === ""){
 		$train.css('border-color', "red");
 		return;

@@ -1,137 +1,203 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>Train Management system</title>
-</head>
-<body>
-	 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Login modal link -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a data-toggle="modal" data-target="#loginModal">
-                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> 
+	<!DOCTYPE html>
+	<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-      <!-- Login modal -->
+		<title>Train Management system</title>
+	</head>
+	<body>
+		 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	        	<span class="navbar-brand" id="displayUser"></span>
+	            <!-- Login modal link -->
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li><a id="loginLink"  data-toggle="modal" data-target=".bs-modal-sm">
+	                    <span class="glyphicon glyphicon-log-in" ></span> Login</a>
+	                    </li>
+	                    <li>
+	                    <a id="logOutLink"><span class="glyphicon glyphicon-log-out hide" ></span> Log Out</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </nav> 
 
-    <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login </h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-inline">
-                    <div class="form-group">
-                            <label class="sr-only" for="email">User Name</label>
-                            <input type="text" class="form-control input-sm" id="userName" placeholder="User Name">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="email">Email address</label>
-                            <input type="email" class="form-control input-sm" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="pwd">Password</label>
-                            <input type="password" class="form-control input-sm" id="pwd" placeholder="Password">
-                        </div>
-                        <button type="login" class="btn btn-info btn-sm">Sign In</button>
-                        <button type="register" class="btn btn-info btn-sm">Sign Up</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-  <!-- Main page -->
+	      <!-- Login modal -->
 
-	<div class="container" id="main">
-		<div class="jumbotron text-center background">
-			  <h1>Anytime is Train Time</h1>
-			  <h3>Choo Choo. Chee Chee</h3>
-		</div>
+	<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	        <br>
+	        <div class="bs-example bs-example-tabs">
+	            <ul id="myTab" class="nav nav-tabs">
+	              <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+	              <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+	             
+	            </ul>
+	        </div>
+	      <div class="modal-body">
+	        <div id="myTabContent" class="tab-content">
+	        <div class="tab-pane fade in" id="why">
+	        
+	        </div>
+	        <div class="tab-pane fade active in" id="signin">
+	            <form class="form-horizontal">
+	            <fieldset>
+	            <!-- Sign In Form -->
+	            <!-- Text input-->
+	            <div class="control-group">
+	              <label class="control-label" for="email">Email</label>
+	              <div class="controls">
+	                <input required="" id="email" name="email" type="text" class="form-control" placeholder="example@email.com" class="input-medium" required="">
+	              </div>
+	            </div>
+
+	            <!-- Password input-->
+	            <div class="control-group">
+	              <label class="control-label" for="pwd">Password:</label>
+	              <div class="controls">
+	                <input required="" id="pwd" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+	              </div>
+	            </div>
+
+	            <!-- Button -->
+	            <div class="control-group">
+	              <label class="control-label" for="signin"></label>
+	              <div class="controls">
+	                <button id="login" data-dismiss="modal" name="signin" class="btn btn-success">Sign In</button>
+	              </div>
+	            </div>
+	            </fieldset>
+	            </form>
+	        </div>
+	        <div class="tab-pane fade" id="signup">
+	            <form class="form-horizontal">
+	            <fieldset>
+	            <!-- Sign Up Form -->
+	            <!-- Text input-->
+	            <div class="control-group">
+	              <label class="control-label" for="userName">User Name:</label>
+	              <div class="controls">
+	                <input id="userName" name="userid" class="form-control" type="text" placeholder="user name" class="input-large" required="">
+	              </div>
+	            </div>
+
+	            <!-- Text input-->
+	            <div class="control-group">
+	              <label class="control-label" for="email">Email:</label>
+	              <div class="controls">
+	                <input id="emailR" name="Email" class="form-control" type="email" placeholder="example@email.com" class="input-large" required="">
+	              </div>
+	            </div>
+	            
+	            
+	            <!-- Password input-->
+	            <div class="control-group">
+	              <label class="control-label" for="password">Password:</label>
+	              <div class="controls">
+	                <input id="pwdR" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+	                <em>1-8 Characters</em>
+	              </div>
+	            </div>
+	            
+	            <!-- Text input-->
+	            <div class="control-group">
+	              <label class="control-label" for="reenterpwd">Re-Enter Password:</label>
+	              <div class="controls">
+	                <input id="reenterpwd" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+	              </div>
+	            </div>
+	           
+	            <!-- Button -->
+	            <div class="control-group">
+	              <label class="control-label" for="confirmsignup"></label>
+	              <div class="controls">
+	                <button id="register" data-dismiss="modal" name="confirmsignup" class="btn btn-success">Sign Up</button>
+	              </div>
+	            </div>
+	            </fieldset>
+	            </form>
+	      </div>
+	    </div>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
-	<div class="container">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title">Current Train Schedule</h3>
+	  <!-- Main page -->
+
+		<div class="container" id="main">
+			<div class="jumbotron text-center background">
+				  <h1>Anytime is Train Time</h1>
+				  <h3>Choo Choo. Chee Chee</h3>
 			</div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table class="table table-hover table-striped"> 
-						<thead> 
-							<tr>
-								<th>Train Name</th> <th>Destination</th> <th>Frequency (min)</th> <th>Next Arrival</th> <th>Minutes Away</th> <th></th>
-							</tr> 
-						</thead> 
-						<tbody id="tableToAdd"> 
-							<!-- Table Data -->
-						</tbody> 
-					</table>
+		</div>
+
+		<div class="container">
+			<div class="panel panel-primary"  id="table">
+				<div class="panel-heading">
+					<h3 class="panel-title">Current Train Schedule</h3>
 				</div>
-			</div>
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-hover table-striped"> 
+							<thead> 
+								<tr>
+									<th>Train Name</th> <th>Destination</th> <th>Frequency (min)</th> <th>Next Arrival</th> <th>Minutes Away</th> <th></th>
+								</tr> 
+							</thead> 
+							<tbody id="tableToAdd"> 
 
+							</tbody> 
+						</table>
+					</div>
+				</div>
+
+				
+			</div>
 			
-		</div>
-		
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				 <h3 class="panel-title">Add Train</h3>
+			<div class="panel panel-primary" id="addForm">
+				<div class="panel-heading">
+					 <h3 class="panel-title">Add Train</h3>
+				</div>
+				  <div class="panel-body">
+						<form>
+						  <div class="form-group">
+						    <label for="name">Train Name</label>
+						    <input type="text" class="form-control" id="train-name" placeholder="Train Name">
+						  </div>
+						  <div class="form-group">
+						    <label for="role">Destination</label>
+						    <input type="text" class="form-control" id="destination" placeholder="Destination">
+						  </div>
+						  <div class="form-group">
+						    <label for="start-date">First Train Time (HH:mm - military time)</label>
+						    <input type="time" class="form-control" id="first-train" placeholder="First Train Time">
+						  </div>
+						  <div class="form-group">
+						    <label for="rate">Frequency (min)</label>
+						    <input type="number" class="form-control" id="frequency" placeholder="Frequency">
+						  </div>
+						  
+						  <button type="button" id="addTrain" class="btn btn-primary">Submit</button>
+						</form>
+				  </div>
 			</div>
-			  <div class="panel-body">
-					<form>
-					  <div class="form-group">
-					    <label for="name">Train Name</label>
-					    <input type="text" class="form-control" id="train-name" placeholder="Train Name">
-					  </div>
-					  <div class="form-group">
-					    <label for="role">Destination</label>
-					    <input type="text" class="form-control" id="destination" placeholder="Destination">
-					  </div>
-					  <div class="form-group">
-					    <label for="start-date">First Train Time (HH:mm - military time)</label>
-					    <input type="time" class="form-control" id="first-train" placeholder="First Train Time">
-					  </div>
-					  <div class="form-group">
-					    <label for="rate">Frequency (min)</label>
-					    <input type="number" class="form-control" id="frequency" placeholder="Frequency">
-					  </div>
-					  
-					  <button type="button" id="addTrain" class="btn btn-primary">Submit</button>
-					</form>
-			  </div>
-		</div>
-	</div>	
+		</div>	
 
-	<
+		<
 
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyAUGTOQHHp9EaXP83VE_wBzVQKPzzfmDgI",
-	    authDomain: "employee-data-management-5554d.firebaseapp.com",
-	    databaseURL: "https://employee-data-management-5554d.firebaseio.com",
-	    storageBucket: "employee-data-management-5554d.appspot.com",
-	    messagingSenderId: "146230344080"
-	  };
-	  firebase.initializeApp(config);
-	</script>
-	<script src="assets/javascript/auth.js"></script>
-	<script src="assets/javascript/app.js"></script>
-</body>
-</html
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+
+		<script src="assets/javascript/auth.js"></script>
+		<script src="assets/javascript/app.js"></script>
+	</body>
+	</html
